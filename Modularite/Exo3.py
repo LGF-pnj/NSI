@@ -13,10 +13,11 @@ def ajoute(s,x):
 
 def enumere(s):
     tab=[]
-    for entier in s :
+    valEntier=0
+    for ientier in range(6) :
         for i in range(64):
-            if entier & (i << 64)!=0 :
-                tab+=i
+            if s[ientier] & (1 << i)!=0 :
+                tab.append(i+64*ientier)
     return tab
 
 #shellig
