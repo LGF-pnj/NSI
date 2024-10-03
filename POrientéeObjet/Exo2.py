@@ -22,13 +22,20 @@ class Fraction :
         return (self.num*subject.denom<self.denom*subject.num)
     
     def __add__(self,subject):
-        pass
+        adder=self.num*subject.denom
+        addto=subject.num*self.denom
+        denomcom=self.denom*subject.denom
+        result=Fraction(adder+addto, denomcom)
+        return result
 
     def __mul__(self, subject):
         newself=Fraction(self.num*subject.num, self.denom*subject.denom)
         return newself
 
+    def simplifie(self):
+        pass
+
 f=Fraction(2,3)
 r=Fraction(2,5)
 
-print(f*r)
+print(f+r)
