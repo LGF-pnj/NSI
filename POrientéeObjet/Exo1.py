@@ -16,6 +16,20 @@ class Chrono:
         h,m,s = self.conversion()
         return (str(h)+ "h" + str(m) + "m" + str(s) + "s")
     
+    def clone(self):
+        h,m,s=self.conversion()
+        newself=Chrono(h,m,s)
+        return newself
+    
+    def __eq__(self, subject):
+        return self._temps==subject._temps
+        
+    
 t = Chrono(22,22,22)
-t.avance(158)
 print(t)
+
+c=t.clone()
+c.avance(125)
+print(c)
+
+print(t==c)
