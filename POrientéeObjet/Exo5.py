@@ -7,7 +7,7 @@ class DbTab :
 
 def imin(self):
     mini=len(self.gauche)
-    if mini!=0:
+    if mini!=0:  #condition pas nécessaire, -len possible, renvoie bien 0 
         mini=-mini
     return mini
 
