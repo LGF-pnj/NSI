@@ -67,18 +67,32 @@ t4=deplacer_triangle(t2,2,3)
 
 #1. pas d'interêt ds. la config. actuelle -> potentiel selon modifs prévues.
 
-ab=points(15,42)
-bb=points(-28,384)
-cb=points(-16,17)
-db=points(0,1)
 
-t1b=triangle(ab,bb,cb)
-t2b=triangle(bb,cb,db)
+class Point:
+    def __init__(self,x,y):
+        self.x=x
+        self.y=y
+    def deplacer(self,dx,dy):
+        self.x+=dx
+        self.y+=dy
 
-t3b=deplacer_triangle(t1b,-1,-1)
-t4b=deplacer_triangle(t2b,2,3)
+class Triangle:
+    def __init__(self, p1, p2, p3):
+        self.p1=p1
+        self.p2=p2
+        self.p3=p3
+    def deplacer(self, dx, dy):
+        self.p1.deplacer(dx,dy)
+        self.p2.deplacer(dx,dy)
+        self.p3(dx,dy)
 
-print(t3b)
-print(t4b)
+ab=Point(12,23)
+bb=Point(17,-12)
+cb=Point(0,1)
+db=Point(4,-5)
 
-#3,4 -> ? pas de pb ?
+t1b=Triangle(ab,bb,cb)
+t2b=Triangle(bb,cb,db)
+
+t3b=t1b.deplacer(-1,-1)
+t4b=t2b.deplacer(2,3)
