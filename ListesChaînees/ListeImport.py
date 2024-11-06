@@ -10,3 +10,56 @@ def longeur(lst):
         n+=1
         lst=lst.suivante
     return n
+
+def nieme_element(n,lst):
+    """element indice n de la liste"""
+    if lst is none :
+        raise IndexError("indice invalide")
+    elif n==0 :
+        return lst.valeur
+    else :
+        return nieme_element(n-1, lst.suivante)
+
+def concatener(l1,l2):
+    if l1 is None :
+        return l2
+    else :
+        return Cellule(l1.valeur, concatener(l1.suivante, l2)
+
+def renverser(lst):
+    r=None
+    c=lst
+    while c is not None:
+        r=Cellule(c.valeur, r)
+        c=c.suivante
+    return r
+
+class Liste:
+    def __init__(self):
+        self._tete = None
+        
+    def est_vide(self):
+        return self._tete is None
+
+    def ajoute(self, x):
+        self._tete =cellule(x, self._tete)
+
+    def __len__(self):
+        n=0
+        c=self._tete
+        while c is not None:
+            n+=1
+            c=c.suivante
+        return n
+
+    def __getitem__(self,n):
+        return nieme_element(n, self._tete)
+
+    def renverser(self):
+        self._tete=renverser(self._tete)
+
+    def __add__(self, lst):
+        r=liste()
+        r._tete=concatener(self._tete, lst._tete)
+        return r
+        
