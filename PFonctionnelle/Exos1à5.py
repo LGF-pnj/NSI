@@ -1,5 +1,10 @@
 #Exo1
 
+def trouve(p, t):
+    for x in t :
+        if p(x)==True :
+            return x
+    return None
 
 #Exo2
 def applique(f,t):
