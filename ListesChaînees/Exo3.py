@@ -15,5 +15,5 @@ def occurenceswh(x,lst):
         if lst.valeur==x:
             ocurences+=1
         else :
-            lst.suivante
+            lst=lst.suivante
     return occurences
