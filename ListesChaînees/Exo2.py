@@ -6,7 +6,7 @@ def nieme_element(n,lst):
         raise IndexError("indice invalide")
     i=0
     while i !=n :
-        lst.suivante
+        lst=lst.suivante
         i+=1
     return lst.valeur
 
