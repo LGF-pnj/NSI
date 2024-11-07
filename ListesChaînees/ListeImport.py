@@ -34,6 +34,14 @@ def renverser(lst):
         c=c.suivante
     return r
 
+
+# correction ex 1 q1
+def str_liste(lst):
+    if lst is None :
+        return "\n"
+    else :
+        return str(lst.valeur) + "," + str_liste(lst.suivante)
+
 class Liste:
     def __init__(self):
         self._tete = None
@@ -64,14 +72,4 @@ class Liste:
         return r
     
     def __str__(self):
-        c=self._tete
-        r=""
-        return _instr(c, r)
-        
-    
-def _instr(tete, r) :
-     if tete.est_vide():
-            return r
-     else :
-        r+=str(tete.valeur) + ", "
-        return _instr(tete.suivante, r)
+        return str_liste(self._tete)
