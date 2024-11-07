@@ -12,4 +12,4 @@ def trouvewh(x ,lst):
     i=0
     while lst.valeur != x:
         i+=1
-        lst.suivante
+        lst=lst.suivante
