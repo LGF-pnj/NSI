@@ -21,3 +21,5 @@ def trouvewh(x ,lst):
         return i
     else :
         return None
+
+#Correction sur fiche exos tablette
