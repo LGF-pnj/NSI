@@ -34,11 +34,19 @@ def listeN(n):
         return 1
     else:
         return Cellule(listeN(n-1), n)
+#correction : utiliser boucle for ou faire fn ds fn av compteur
 
-
+def listeNc(n):
+    l=None
+    for i in range(n,0,-1):
+        l=Cellule(i,l)
+    return l
 #10
 
 def liste_tableau(t):
     lchai=None
     for i in range(0,len(t),-1):
         lchai=Cellule(t[i], lchai)
+
+#correction :
+#for i in range(len(t)-1,-1,-1):
