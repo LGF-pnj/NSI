@@ -18,6 +18,24 @@ class Pile:
             raise IndexError("Depile une pile vide")
         v=self._contenu.valeur
         self._contenu=self._contenu.suivante
+        return v
+
+
+    def consulter(self):
+        return self._contenu.valeur
+
+    def vider(self):
+        self._contenu = None
+
+    def __len__(self):
+        #copie ??
+        cmpt=0
+        while self._contenu.suivante!=None:
+            cmpt+=1
+        self._contenu=self._contenu.suivante
+
 
 def creer_pile():
     return Pile()
+
+
