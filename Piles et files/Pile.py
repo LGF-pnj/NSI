@@ -22,7 +22,8 @@ class Pile:
 
 
     def consulter(self):
-        return self._contenu.valeur
+        if not self.estvide():
+            return self._contenu.valeur
 
     def vider(self):
         self._contenu = None
