@@ -3,7 +3,7 @@ from Pile import*
 #fn parenthesee
 def egeeEthra(ch, f):
     chpile=creer_pile()
-    for i in range (len(ch)):
+    for i in range (len(ch)-1):
         if ch[i]=="(" or ch[i]==")":
             if chpile.est_vide():
                 chpile.empiler(i)
