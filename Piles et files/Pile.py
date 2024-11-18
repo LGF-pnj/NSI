@@ -29,7 +29,7 @@ class Pile:
         self._contenu = None
 
     def __len__(self):
-        #copie ??
+        #copie ?? (correction : non tant)
         cmpt=0
         while self._contenu.suivante!=None:
             cmpt+=1

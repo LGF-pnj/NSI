@@ -45,7 +45,7 @@ assert h.adresse_courante == "www.stackoverflow.com"
 h.retour()
 assert h.adresse_courante is None
 
-#tests de retour avant
+#tests de retour avant (ils plantent et jsp pk mais le code est juste il parait donc)
 g=Historique
 h.aller_a("www.stackoverflow.com")
 h.retour()
