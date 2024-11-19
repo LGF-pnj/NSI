@@ -1,2 +1,3 @@
-pljuvmuhbqlfgvb
+t=[None]*9
+print (t)
 
