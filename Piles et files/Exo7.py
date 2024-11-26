@@ -1,5 +1,5 @@
 class File_bornee :
-    #rendre circulaire - "kepler !"
+    #circulaire ? - "kepler !"
     def __init__(self, c):
         self._contenu = [None]*c
         self._premier = 0
@@ -19,8 +19,8 @@ class File_bornee :
         if self.est_pleine():
             raise IndexError("la file est pleine")
         else :
-            self._contenu[self._premier+self._nb]=e
-            nb+=1
+            self._contenu[(self._premier+self._nb)%len(self._contenu)]=e
+            self._nb=(self._nb+1)%len(self._contenu) #juste self.nb+=1, le % n'est pas nécessaire ici. 
 
     def retirer(self):
         if self.est_vide():
@@ -28,6 +28,6 @@ class File_bornee :
         else :
             r=self._contenu[self._premier]
             self._contenu[self._premier]=None
-            self._nb-=1
-            self._premier+=1
+            self._nb=(self._nb-1)%len(self._contenu)#idem juste self.nb-1
+            self._premier=(self._premier+1)%len(self._contenu)
             return r
