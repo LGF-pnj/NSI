@@ -15,7 +15,7 @@ class Noeud :
 
 # non
 
-   def __eq__(self, subject):
+    def __eq__(self, subject):
        return (subject is not None and self.valeur == subject.valeur and self.gauche==subject.gauche and self.droit == subject.droit)
 
 def taille(a):
