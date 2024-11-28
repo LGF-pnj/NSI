@@ -5,13 +5,18 @@ class Noeud :
         self.valeur = v
         self.droit = d
 
-    def __eq__(self, subject):
-        if self is None and subject is None :
+    def _eqeleve_(self, subject):
+        if self is None and subject is None : #ligne imposssible car si self none on executera eq none et pas eq sur un noeud.
             return True
         elif self.valeur == subject.valeur :
             return self.gauche==subject.gauche and self.droit==subject.droit
         else :
             return False 
+
+# non
+
+   def __eq__(self, subject):
+       return (subject is not None and self.valeur == subject.valeur and self.gauche==subject.gauche and self.droit == subject.droit)
 
 def taille(a):
     """renvoie le nb de noeuds de l'arbre a"""
