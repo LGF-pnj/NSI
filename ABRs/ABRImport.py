@@ -50,9 +50,25 @@ def supprime_minimum(a):
         return a.droit
     else :
         return Noeud(supprime_minimum(a.gauche), a.valeur, a.droit)
-    
 
-#manque minimum pour qu'elle fonctionne 
+
+def str_arbre (a):
+    if a is None :
+        return ""
+    else :
+        return "(" + str_arbre(a.gauche) + str(a.valeur) + str_arbre(a.droit) + ")"
+    
+#Exo3
+# 1.tout à droite
+
+def minimum(a):
+    if a is None :
+        return None
+    elif a.droite is None : 
+        return a.valeur
+    else :
+        return minimum(a.droite)
+    
 def supprime(x, a):
     if a is None :
         return None
@@ -64,12 +80,6 @@ def supprime(x, a):
         return a.gauche
     else :
         return Noeud(a.gauche, minimum(a.droit), supprime_minimum(a.droit))
-
-def str_arbre (a):
-    if a is None :
-        return ""
-    else :
-        return "(" + str_arbre(a.gauche) + str(a.valeur) + str_arbre(a.droit) + ")"
 
 class ABR :
     """un arbre binaire de recherche"""
@@ -86,14 +96,18 @@ class ABR :
         if a is None :
             return 0
         else : 
-            return 1+taille(a.gauche) + taille(a.droit)
+            return 1+ taille(a.gauche) + taille(a.droit)
             
     def hauteur(a):
         if a is None : 
             return 0
         else : 
-            return 1+max(hauteur(a.gauche), hauteur(a.droit)
+            return 1+max(hauteur(a.gauche), hauteur(a.droit))
 
     def __str__(a):
         return str_arbre(a)
+    
+    def supp(self, x):
+        return supprime(self, x)
+        
 
