@@ -11,9 +11,9 @@ def remplir(a, t):
     if a is None :
         return t
     else :
-        g=remplir(a.gauche, t)
+        remplir(a.gauche, t)
         t.append(a.valeur)
-        d=remplir(a.droite, t)
+        remplir(a.droite, t)
 
 
 

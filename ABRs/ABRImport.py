@@ -113,7 +113,10 @@ class ABR :
         return supprime(self, x)
     
     def lister(self):
-        ch=parcours_infixe(self.racine)
-        
+        t=[]
+        return remplir(self, t)
+    
+    
+
         
 
