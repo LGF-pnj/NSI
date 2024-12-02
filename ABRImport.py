@@ -75,17 +75,17 @@ class ABR :
     
     def ajouter(self, x):
         self.racine=ajoute(x, self.racine)
-
-def taille(a):
-    if a is None :
-       return 0
-    else : 
-       return 1+taille(a.gauche) + taille(a.droit)
-
-def hauteur(a):
-    if a is None : 
-        return 0
-    else : 
-        return 1+max(hauteur(a.gauche), hauteur(a.droit)
+        
+    def taille(a):
+        if a is None :
+            return 0
+        else : 
+            return 1+taille(a.gauche) + taille(a.droit)
+            
+    def hauteur(a):
+        if a is None : 
+            return 0
+        else : 
+            return 1+max(hauteur(a.gauche), hauteur(a.droit)
 
 
