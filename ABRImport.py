@@ -65,6 +65,12 @@ def supprime(x, a):
     else :
         return Noeud(a.gauche, minimum(a.droit), supprime_minimum(a.droit))
 
+def str_arbre (a):
+    if a is None :
+        return ""
+    else :
+        return "(" + str_arbre(a.gauche) + str(a.valeur) + str_arbre(a.droit) + ")"
+
 class ABR :
     """un arbre binaire de recherche"""
     def __init__(self):
@@ -88,4 +94,6 @@ class ABR :
         else : 
             return 1+max(hauteur(a.gauche), hauteur(a.droit)
 
+    def __str__(a):
+        return str_arbre(a)
 
