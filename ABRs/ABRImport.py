@@ -1,3 +1,5 @@
+from Exo5 import *
+
 class Noeud :
     """un noeud d'un arbre binaire"""
     def __init__(self, g,v,d):
@@ -109,5 +111,9 @@ class ABR :
     
     def supp(self, x):
         return supprime(self, x)
+    
+    def lister(self):
+        ch=parcours_infixe(self.racine)
+        
         
 
