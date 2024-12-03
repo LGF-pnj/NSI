@@ -114,7 +114,7 @@ class ABR :
     
     def lister(self):
         t=[]
-        return remplir(self, t)
+        return remplir(self.racine, t)
     
     
 
