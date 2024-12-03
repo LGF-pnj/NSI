@@ -1,5 +1,6 @@
 from Exo5 import *
 
+
 class Noeud :
     """un noeud d'un arbre binaire"""
     def __init__(self, g,v,d):
@@ -30,9 +31,11 @@ def ajoute(x, a):
         return Noeud(None, x, None)
     elif x<a.valeur :
         return Noeud(ajoute(x,a.gauche), a.valeur, a.droit)
-    else :
+    elif x>a.valeur :
         return Noeud(a.gauche, a.valeur, ajoute(x, a.droit))
-    
+    else :
+        return a
+
 def ajoute_enplace(x, a):
     assert a is not None
     if x<a.valeur :
@@ -98,13 +101,13 @@ class ABR :
         if a is None :
             return 0
         else : 
-            return 1+ taille(a.gauche) + taille(a.droit)
-            
+            return 1+ a.gauche.taille() + a.droit.taille()
+        
     def hauteur(a):
         if a is None : 
             return 0
         else : 
-            return 1+max(hauteur(a.gauche), hauteur(a.droit))
+            return 1+max(a.gauche.hauteur, a.droit.hauteur)
 
     def __str__(a):
         return str_arbre(a)
@@ -114,7 +117,8 @@ class ABR :
     
     def lister(self):
         t=[]
-        return remplir(self.racine, t)
+        remplir(self.racine, t)
+        return t
     
     
 

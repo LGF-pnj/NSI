@@ -13,7 +13,7 @@ def remplir(a, t):
     else :
         remplir(a.gauche, t)
         t.append(a.valeur)
-        remplir(a.droite, t)
+        remplir(a.droit, t)
 
 
 
