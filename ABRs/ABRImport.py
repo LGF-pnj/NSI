@@ -110,7 +110,7 @@ class ABR :
         return str_arbre(a)
     
     def supp(self, x):
-        return supprime(self, x)
+        return supprime(self.racine, x)
     
     def lister(self):
         t=[]
