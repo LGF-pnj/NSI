@@ -9,5 +9,6 @@ def affiche(a, ch):
     
 affiche(a, "    ")
 
-#on peut mettre une valeir par defaut a ch ds. la def de fn --> def affiche(a, ch="")
-#aussi on ne ceut pas un espace mais une chaîne vide.
+#on peut mettre une valeur par defaut a ch ds. la def de fn --> def affiche(a, ch="")
+#aussi on peut mettre une chaine vide dans ch et l'estoace on le rajoute dans print(affiche(etc.)) pour pas avoir
+#d'espace obligatoire en debut de toutes les valeurs. 
