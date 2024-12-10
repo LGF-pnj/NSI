@@ -13,17 +13,13 @@ print(listdir("/home/tnsi-eleve3/Documents/NSI/Arborescences/"))
 
 affiche(repertoires("/home/tnsi-eleve3/Documents/NSI/Arborescences/"))    
 
+#broken
+#correction en photo
+
 def repertoires2(nom: str):
-    ? Noeud(nom, [])
+    Noeud(nom, [])
     if path.isdir(nom):
         
         for elem in listdir(nom) :
-            nom = 
+            nom = a
             return Noeud(elem, [(repertoires2(nom))])
-        
-if not...
-return noeud(...)
-if isdir :
-nom = nom + anciennom
-creer un noeud de sa val(son nom)
-parcourir ses enfants et récursivite
