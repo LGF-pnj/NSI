@@ -4,6 +4,15 @@ class Cellule:
     def __init__(self,v,s):
         self._valeur=v
         self._suivante=s
+
+    def __len__(self):
+        if self is None :
+            return 0
+        if self._suivante is None :
+            return 1
+        else :
+            return 1+len(self._suivante)
+
 class File:
     """structure de file"""
     def __init__(self):
@@ -18,7 +27,7 @@ class File:
         if self.est_vide():
             self._tete=c
         else:
-            self._queue.suivante=c
+            self._queue._suivante=c
         self._queue=c
 
     def retirer(self):
@@ -29,4 +38,10 @@ class File:
         if self._tete is None:
             self._queue = None
         return v
+    
+    def __len__(self):
+        if self.est_vide():
+            return 0
+        else :
+            return len(self._tete)
     

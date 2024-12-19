@@ -63,8 +63,16 @@ class RepartiteurChoix(Repartiteur):
             f=File()
             self.files.append(f)
 
+    def _lenfiles(self) -> list :
+        lenfiles=[]
+        for file in self.files :
+            lenfiles.append[len(file)]
+        return lenfiles
+
     def entree_client(self):
-        pass
+        c=_creerClient()
+        ifile = min(self._lenfiles())
+        self.files[ifile].ajouter(c)
 
     def sortie_client(self, num):
         pass
