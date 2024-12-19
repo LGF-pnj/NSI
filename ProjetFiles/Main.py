@@ -53,7 +53,7 @@ class RepartiteurAlea(Repartiteur):
         #soit num le numero identifiant du guichet entre 1 et nbGuichets du simulateur inclus
         c = self.files[num-1].retirer()#-1 car passage de numero à indice ds le tableau files
         self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
-        #on peut faire en sorte de renvoyer le client retirer ( pour le guichet.) Souhaitable ?
+        #on peut faire en sorte de renvoyer le client retiré ( pour le guichet.) Souhaitable ?
         
 
 class RepartiteurChoix(Repartiteur):
