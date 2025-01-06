@@ -1,7 +1,7 @@
-# si on a le temps : methode superconfig pr lancer plusieur simuatons et faire des stats
 from file import *
 from Main import *
 from simulateur import *
+from v2 import *
 
 
 class FakeSimulateur:

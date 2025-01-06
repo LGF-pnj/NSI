@@ -1,6 +1,6 @@
 
 class Simulateur:
-    repartiteurs = {"Un" : "RepartiteurUn", "Alea" : "RepartiteurAlea", "Choix" : "RepartiteurChoix"}
+    repartiteurs = {"Un" : "RepartiteurUn", "Aleatoire" : "RepartiteurAlea", "Choix" : "RepartiteurChoix"}
 
     def __init__(self):
         self._repartiteur=None
@@ -12,8 +12,13 @@ class Simulateur:
         self.nbGuichets=None
         self._totalAttente=None
 
+
     def config(self):
         #lorna
+        # !!! bugged !!! i think.
+        #self.repartiteurs[input()]
+        #here
+        #doesnt do what its supposed to
         """configure le simulateur selon les inputs des utilisateurs"""
         print("Mode de répartition ?")
         self._repartiteur=self.repartiteurs[input()]
@@ -31,8 +36,3 @@ class Simulateur:
         self._tick = 0
         #...
         return ("clients servis : "+str(self._clientsServis), "attente totale : "+str(self._totalAttente))
-
-
-
-
-

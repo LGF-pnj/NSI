@@ -12,6 +12,7 @@ class Repartiteur:
         self.attenteTotale=0
         self.files=[]
         self.simul=s
+            
     def entree_client(self):
         """ajoute un entier représentant le tour d'arrivée du client"""
         raise NotImplemented()
@@ -28,12 +29,13 @@ class RepartiteurUn(Repartiteur):
         self.files.append(f)
 
     def entree_client(self):
-        c = _creerClient()
+        c = _creerClient(self.simul._tick)
         self.files[0].ajouter(c)
 
-    def sortie_client(self, num):
-        c=self.files[0].retirer()
-        self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
+    def sortie_client(self, num=1):
+        if not self.files[0].est_vide():
+            c=self.files[0].retirer()
+            self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
 
 
 class RepartiteurAlea(Repartiteur):
@@ -44,17 +46,17 @@ class RepartiteurAlea(Repartiteur):
             self.files.append(f)
         
     def entree_client(self):
-        c=_creerClient()
+        c=_creerClient(self.simul._tick)
         ifile = randint(0, len(self.files)-1)
         self.files[ifile].ajouter(c)
 
-
     def sortie_client(self, num):
         #soit num le numero identifiant du guichet entre 1 et nbGuichets du simulateur inclus
-        c = self.files[num-1].retirer()#-1 car passage de numero à indice ds le tableau files
-        self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
-        #on peut faire en sorte de renvoyer le client retiré ( pour le guichet.) Souhaitable ?
-        
+        if not self.files[num-1].est_vide():
+            c = self.files[num-1].retirer()#-1 car passage de numero à indice ds le tableau files
+            self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
+        #on peut faire en sorte de renvoyer le client retirer ( pour le guichet.) Souhaitable ?
+
 
 class RepartiteurChoix(Repartiteur):
     def __init__(self, s):
@@ -65,39 +67,51 @@ class RepartiteurChoix(Repartiteur):
 
     def _lenfiles(self) -> list :
         lenfiles=[]
-        for file in self.files :
-            lenfiles.append[len(file)]
+        for i in range(len(self.files)):
+            lenfiles.append(len(self.files[i]))
         return lenfiles
 
+    def _imin_file(self) :
+        lenfiles=self._lenfiles()
+        lenmin=lenfiles[0]
+        imin=0
+        for i in range(1, len(lenfiles)):
+            if lenfiles[i]<lenmin :
+                imin = i
+        return imin
+                       
     def entree_client(self):
-        c=_creerClient()
-        ifile = min(self._lenfiles())
+        c=_creerClient(self.simul._tick)
+        ifile = self._imin_file()
         self.files[ifile].ajouter(c)
 
     def sortie_client(self, num):
-        pass
-    
+        if not self.files[num-1].est_vide():
+            c = self.files[num-1].retirer()   
+            self.simul._totalAttente += (self.simul._tick - c.temps_arrivee)
+
+
 class Client:
     #lorna
     def __init__(self,tick):
         self.temps_arrivee=tick
 
-
+    def __str__(self):
+        return str(self.temps_arrivee)
+            
 class Guichet:
     #ludivine
-    def __init__(self, s, num):
+    def __init__(self, s, num): #definir max tour
         self.simul = s
-        self.traitement = None #jsp, a completer
+        self.traitement = 0
         self.numero = num
 
     def tour(self):
-        #appelle sortie client du repartiteur
-        #fait : self.simul._clientsServis += 1 lorsqu'un client est traité (sort du guichet)
-        self.traitement=randint(1, maxTour)
+        #appelle sortie client du repartiteur, est utilisé a chaque tick
+        #fait : si le guichet est occuper on soustré le temps restant, si il est libre on prend un nouveau client et augmente le nb de clients servis.
+        self.traitement=randint(1, self.simul.max)
         if self.traitement>0:
             self.traitement-=1
         else:
             self.simul._clientsServis +=1
-            self.sortie_client(self.num)
-
-
+            self.sortie_client(self.numero)
