@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 # si on a le temps : methode superconfig pr lancer plusieurs simulations et faire des stats
->>>>>>> fb1296f635ec7f24bab244b3046ec4821493b264
 from file import *
 from Main import *
 from simulateur import *
@@ -13,31 +10,17 @@ class FakeSimulateur:
         self._tick = 0
         self.nbGuichets = 5
 
-s2 = FakeSimulateur()
-repAl = RepartiteurAlea(s2)
 
+sim = Simulateur()
 
-s3 = FakeSimulateur()
-repCh = RepartiteurChoix(s3)
+configv2(sim)
 
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-repCh.entree_client()
-s3._tick+=1
-print(repCh.files[0])
-print(repCh.files[1])
-print(repCh.files[2])
-print(repCh.files[3])
-print(repCh.files[4])
+print(sim.guichets)
+print(sim.max)
+print(sim._repartiteur)
+print(sim.nbTours)
+print()
+print(sim._tick)
+print(sim._clientsServis)
+print(sim._totalAttente)
+
