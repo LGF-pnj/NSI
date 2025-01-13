@@ -4,6 +4,8 @@ from simulateur import *
 
 #client : pk creerclient ? si inutile replacer par appel simple Client(tick)
 
+#config : simplifier choix repartiteur av lettre plutot que mot ( U pr un, )
+
 #documentation !
 
 
