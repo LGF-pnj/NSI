@@ -10,10 +10,9 @@ class FakeSimulateur:
         self._tick = 0
         self.nbGuichets = 5
 
-
 sim = Simulateur()
 
-configv2(sim)
+sim.config()
 
 print(sim.guichets)
 print(sim.max)

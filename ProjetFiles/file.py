@@ -4,15 +4,6 @@ class Cellule:
         self._valeur=v
         self._suivante=s
         
-    def __len__(self):
-        #lorna
-        if self is None :
-            return 0
-        if self._suivante is None :
-            return 1
-        else :
-            return 1+len(self._suivante)
-        
     def __str__(self):
         #lorna
         if self is None :
@@ -27,6 +18,7 @@ class File:
     def __init__(self):
         self._tete=None
         self._queue=None
+        self._longueur=0
     
     def est_vide(self):
         return self._tete is None
@@ -38,6 +30,7 @@ class File:
         else:
             self._queue._suivante=c
         self._queue=c
+        self._longueur+=1
 
     def retirer(self):
         if self.est_vide():
@@ -46,14 +39,11 @@ class File:
         self._tete=self._tete._suivante
         if self._tete is None:
             self._queue = None
+        self._longueur-=1
         return v
         
     def __len__(self):
-        #lorna
-        if self.est_vide():
-            return 0
-        else :
-            return len(self._tete) 
+        return self._longueur
         
     def __str__(self):
         #lorna
