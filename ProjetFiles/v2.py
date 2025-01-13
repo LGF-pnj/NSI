@@ -10,6 +10,7 @@ from simulateur import *
 #(elucider la preference de repartiteurchoix)
 
 #methode superconfig pr lancer plusieur simulations et faire des stats
+#aussi superconfig pour comparer les 3 methodes
 
 def superconfig():
     pass

@@ -1,4 +1,3 @@
-# si on a le temps : methode superconfig pr lancer plusieurs simulations et faire des stats
 from file import *
 from Main import *
 from simulateur import *
