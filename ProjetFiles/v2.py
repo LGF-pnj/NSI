@@ -2,6 +2,8 @@ from file import *
 from Main import *
 from simulateur import *
 
+#config : pk pas mettre les chaînes de caractère dans le input ???
+
 #client : pk creerclient ? si inutile replacer par appel simple Client(tick)
 
 #config : simplifier choix repartiteur av lettre plutot que mot ( U pr un, )
