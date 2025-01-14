@@ -12,3 +12,5 @@ def obtainableminusone(c, d):
                 return False
         indD+=1
     return True
+
+#fonctionne, on aurait pu faire i+indD avec ind d un dec de 1 max pr simplifier
