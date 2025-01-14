@@ -5,7 +5,9 @@ def dist_Hamming(ch1, ch2):
     if ch2 is None :
         return len(ch1)
     dist=0
-    for i in range(min(len(ch1),len(ch2))):
+    if len(ch1)>len(ch2):
+        ch1, ch2 = ch2, ch1
+    for i in range(len(ch1)):
         if ch1[i]!=ch2[i]:
             dist+=1
     dist+=abs(len(ch2)-len(ch1))
