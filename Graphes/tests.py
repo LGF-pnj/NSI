@@ -1,2 +1,4 @@
-a = {2 : "f", 3 : "ke0", 4 : "plus"}
-print(len(a))
+from Import import Grapheadj
+from exercice_col import g
+
+print(g.degré("Centre - Val de Loire"))

@@ -27,10 +27,12 @@ class Grapheadj :
     
     #exo10
     #q1
+    #ne pend pas en charge les graphes non orientés
     def degré(self, s):
         return len(self.adj[s])
     
     #q2
+    #ne pend pas en charge les graphes non orientés
     def nb_arcs(self):
         cmpt = 0
         for sommet in self.adj :
@@ -38,6 +40,7 @@ class Grapheadj :
         return cmpt
     
     #q3
+    #ne pend pas en charge les graphes non orientés
     def supprimer_arc(self, s1, s2):
         self.adj[s1].remove(s2)
     
@@ -64,6 +67,7 @@ class Graphemadj :
 
     #exo9
     #q1
+    #ne pend pas en charge les graphes non orientés
     def degré(self, s):
         return len(self.voisins(s))
     
