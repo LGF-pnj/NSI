@@ -39,3 +39,10 @@ def distance(g, u, v):
 assert distance(g, "Normandie", "Auvergne-Rhône-Alpes") == 2
 assert distance(g, "Bretagne", "Bretagne") == 0
 assert distance(g, "Grand Est", "Corse") == None
+
+class Noeud :
+    """un noeud d'un arbre binaire"""
+    def __init__(self, g,v,d):
+        self.gauche = g
+        self.valeur = v
+        self.droit = d

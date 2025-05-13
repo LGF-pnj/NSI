@@ -1,4 +1,4 @@
-from Importparcours import parcours
+from Importparcours import parcours, Noeud
 from exercice_col import g
 
 #Ex5 :
@@ -38,3 +38,28 @@ def parcours(g, vus, s):
 def chemin(g, u, v):
     """un chemin de u à v si il existe, None sinon"""
     pass
+
+#ex7
+
+a = Noeud(Noeud(None, "B", Noeud(None, "C", None)), "A", Noeud(None, "D", None))
+
+def parcours_largeur(racine):
+    dist = {racine.valeur : 0}
+    courant = {racine}
+    suivant = set()
+    while len(courant)>0 :
+        s = courant.pop()
+        fils = set()
+        if s.gauche != None :
+            fils.add(s.gauche)
+        if s.droit != None :
+            fils.add(s.droit)
+        for v in fils :
+            if v.valeur not in dist :
+                suivant.add(v)
+                dist[v.valeur]= dist[s.valeur] + 1
+        if len(courant) == 0 :
+            courant, suivant = suivant, set()
+    return dist
+
+print(parcours_largeur(a))
